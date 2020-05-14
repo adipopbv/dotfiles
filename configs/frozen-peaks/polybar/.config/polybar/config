@@ -1,0 +1,374 @@
+;==================================================================
+;
+;
+;   ██████╗  █████╗ ██╗    ██╗  ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔══██╗██║    ╚██╗██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║  ██║██║     ╚███╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║  ██║██║      ██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚█████╔╝███████╗██╔╝   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚════╝ ╚══════╝╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   polybar configuration by adipopbv (adi.pop.bv@gmail.com).
+;   ~/.config/polybar/config - polybar configuration file.
+;   Go to https://github.com/polybar/polybar/wiki for more info.
+;
+;
+;==================================================================
+
+; Colors definitions
+[colors]
+; 	Background
+background = #8026272B
+background-alt = #C026272B
+; 	Foreground
+foreground = #FFFFFF
+foreground-alt = #535559
+foreground-urgent = #5D82A8
+
+; ===== Bars =====
+
+; The main bar at the center top
+[bar/center-top]
+; 	Monitor display
+monitor =
+; 	Fallback monitor if the main one is not found
+monitor-fallback =
+; 	Placement on bottom
+bottom = false
+; 	Set fixed center position for the `modules-center` block
+fixed-center = true
+; 	Set width and height (percentage/pixels)
+width = 100%
+height = 30
+; 	Offsets on x and y
+offset-x = 0
+offset-y = 0
+; 	Set background and foreground colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+; 	Background gradient (vertical steps)
+; 		background-[0-9]+ = #aarrggbb
+;background-0 =
+; 	Value used for drawing rounded corners
+; 		radius-{top,bottom}
+radius = 0.0
+; 	Set underline size
+; 		{over,under}line-size
+underline-size = 3
+; 	Set underline color
+; 		{over,under}line-color
+underline-color = ${colors.foreground}
+;	Set border size
+;		border-{left,top,right,bottom}-size
+border-size =
+; 	Set border color
+;		border-{left,top,right,bottom}-color
+border-color = ${colors.foreground-alt}
+; 	Spaces to add at the beginning/end of the bar
+; 		padding-{left,right}
+padding = 0
+; 	Spaces to add before/after each module
+; 		module-margin-{left,right}
+module-margin = 0
+; 	Fonts are defined using <font-name>;<vertical-offset>
+; 	Font names are specified using a fontconfig pattern.
+; 		font-[0-9] = NotoSans-Regular:size=8;2
+font-0 = Noto Sans:pixelsize=13;2
+font-1 = Font Awesome 5 Brands Regular:style=Regular;2
+font-2 = Font Awesome 5 Free Solid:style=Solid;2
+font-3 = Font Awesome 5 Free Regular:style=Regular;2
+font-4 = Material Design Icons Desktop:style=Regular;2
+; 	Add modules to blocks
+modules-left = i3 process-name
+modules-center = 
+modules-right = battery backlight volume wifi date-&-time powermenu
+; 	Separator to be inserted between the output of each module
+separator =
+; 	Add extra spacing between elements
+spacing = 0
+; 	Opacity value between 0.0 and 1.0 used on fade in/out
+dim-value = 1.0
+; 	Set WM_NAME atom
+wm-name =
+; 	Position of the system tray window
+; 		If empty or undefined, tray support will be disabled
+; 		Available positions:
+;			left
+;			center
+;			right
+;			none
+tray-position = center
+; 	Don't shift the contents when the tray changes
+tray-detached = false
+; 	Background and foreground color for the tray container 
+tray-background = ${colors.background}
+tray-foreground = ${colors.foreground}
+; 	Tray offset (percentage/pixels)
+; 		tray-offset-{x,y}
+tray-offset-x = 0
+tray-offset-y = 0
+; 	Pad the sides of each tray icon
+tray-padding = 3
+; 	Scale factor for tray clients
+tray-scale = 1.0
+
+; ===== Modules =====
+
+; Show name of the process
+[module/process-name]
+type = internal/xwindow
+; 	Set module format
+format = <label>
+; 	Set module background and foreground
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+; 	Set module padding
+format-padding = 4
+; 	Set module label
+label = %title%
+; 	Set module label max length
+label-maxlen = 50
+; 	Used instead of label when there is no window title
+label-empty =
+; 	Empty label foreground
+label-empty-foreground = ${colors.foreground}
+
+; Show date and time
+[module/date-&-time]
+type = internal/date
+; 	Seconds to sleep between updates
+interval = 1.0
+; 	Date format (see 'man date')
+date = %a, %d %b, 
+; 	Time format (see 'man date')
+time = %H:%M
+; 	Alternate date format (see 'man date')
+date-alt = %A, %d.%m.%Y,
+; 	Alternate time format (see 'man date')
+time-alt = %H:%M:%S
+; 	Set time and date format
+;format =   <label>
+format =  <label>
+; 	Set module background and foreground
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+; 	Set module padding
+format-padding = 3
+; 	Set module label
+label = %date% %time%
+; 	Set label foreground
+label-foreground = ${colors.foreground}
+
+; Show battery status
+[module/battery]
+type = internal/battery
+; 	Set full status at values > 99%
+full-at = 99
+; 	Set battery and adapter
+battery = BAT1
+adapter = ADP1
+; 	Set manual polling interval
+poll-interval = 5
+; 	Set the charging battery format
+format-charging = <animation-charging>  <label-charging>
+; 	Set the discharging battery format
+format-discharging = <ramp-capacity>  <label-discharging>
+; 	Set the full battery format
+format-full = <ramp-capacity>  <label-full>
+; 	Set the charging battery padding
+format-charging-padding = 3
+; 	Set the discharging battery padding
+format-discharging-padding = 3
+; 	Set the full battery padding
+format-full-padding = 3
+; 	Set charging battery label
+label-charging = %percentage%%
+; 	Set discharging battery label
+label-discharging = %percentage%%
+; 	Set full battery label
+label-full = %percentage%%
+; 	Set battery icons for ramp
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+; 	Set battery icons for animation
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 250
+
+; Show screen backlight info
+[module/backlight]
+type = internal/backlight
+; 	Set backlight card
+card = acpi_video0
+; 	Enable changing backlight with scroll wheel
+enable-scroll = false
+; 	Set the module format
+format = <ramp> <label>
+; 	Set the module padding
+format-padding = 3
+; 	Set the module label
+label = %percentage%%
+; 	Set backlight ramp icons
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+; Show volume
+[module/volume]
+type = internal/pulseaudio
+; 	Interval for volume increase/decrease (percent points)
+interval = 5
+; 	Set module volume format
+format-volume = <ramp-volume> <label-volume>
+; 	Set module mute format
+format-muted = <label-muted>
+; 	Set volume label
+label-volume = %percentage%%
+; 	Set muted label
+label-muted =  muted
+; 	Set muted label foreground
+label-muted-foreground = ${colors.foreground-alt}
+; 	Set volume padding
+format-volume-padding = 3
+; 	Set muted padding
+format-muted-padding = 3
+; 	Set volume ramp icons
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; Show power options
+[module/powermenu]
+type = custom/menu
+; 	Set open menu button label
+label-open =   
+; 	Set close menu button label
+label-close = cancel
+; 	Set open menu button padding
+label-open-padding = 2 
+; 	Set close menu button padding
+label-close-padding = 3 
+; 	Set open menu behaviour
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-0-padding = 3
+menu-0-1-padding = 3
+; 	Set reboot menu behaviour
+menu-1-0 = reboot?  
+menu-1-0-exec = reboot
+menu-1-0-padding = 3
+; 	Set power off menu behaviour
+menu-2-0 = power off?  
+menu-2-0-exec = poweroff
+menu-2-0-padding = 3
+
+; Show i3 workspaces
+[module/i3]
+type = internal/i3
+; 	Only show workspaces defined on the same output as the bar
+pin-workspaces = false
+; 	Split the workspace name on ':'
+strip-wsnumbers = true
+; 	Sort the workspaces by index
+index-sort = false
+; 	Enable click handler used to focus workspace
+enable-click = true
+; 	Enable scroll handler used to cycle workspaces
+enable-scroll = false
+; 	Set the module format
+format = <label-state> <label-mode>
+; 	Set workspaces icons
+ws-icon-0 = 1:web;龜
+ws-icon-1 = 2:term;
+ws-icon-2 = 3:code;
+ws-icon-3 = 4:social;
+ws-icon-4 = 5:music;
+ws-icon-5 = 6:games;
+ws-icon-6 = 10:starred;
+ws-icon-default = 
+; 	Set focused ws label
+label-focused = %icon%
+; 	Set focused ws background
+label-focused-background = ${colors.background-alt}
+; 	Set focused ws underline color
+label-focused-underline= ${colors.foreground}
+; 	Set focused ws padding
+label-focused-padding = 3
+; 	Set unfocused ws label
+label-unfocused = %icon%
+; 	Set unfocused ws padding
+label-unfocused-padding = 3
+; 	Set occupied ws label
+label-occupied = %icon%
+; 	Set occupied ws padding
+label-occupied-padding = 3
+; 	Set urgent ws label
+label-urgent = %icon%
+; 	Set urgent ws underline
+label-urgent-underline= ${colors.foreground-urgent}
+; 	Set urgent ws padding
+label-urgent-padding = 3
+; 	Set empty ws label
+label-empty = %icon%
+; 	Set empty ws background
+label-empty-foreground = ${colors.background-alt}
+; 	Set empty ws padding
+label-empty-padding = 3
+
+; Show wifi status
+[module/wifi]
+type = internal/network
+; 	Set network interface
+interface = wlo1
+; 	Seconds to sleep between updates
+interval = 2
+; 	Set connected format
+format-connected = <ramp-signal> <label-connected>
+; 	Set connected padding
+format-connected-padding = 3
+; 	Set disconnected format
+format-disconnected = <label-disconnected>
+; 	Set disconnected padding
+format-disconnected-padding = 3
+; 	Set packetloss format
+format-packetloss = <animation-packetloss> <label-connected>
+; 	Set packetloss padding
+format-packetloss-padding = 3
+; 	Set connected label
+label-connected = %essid% : %downspeed% 
+; 	Set connected label foreground
+label-connected-foreground = ${colors.foreground}
+; 	Set disconnected label
+label-disconnected = 󰤭 disconnected
+; 	Set disconnected label foreground
+label-disconnected-foreground = ${colors.foreground-alt}
+; 	Set packetloss label
+label-packetloss = %essid%
+; 	Set packetloss label foreground
+label-packetloss-foreground = ${colors.foreground-urgent}
+; 	Set connected ramp signal
+ramp-signal-0 = 󰤫
+ramp-signal-1 = 󰤯
+ramp-signal-2 = 󰤟
+ramp-signal-3 = 󰤢
+ramp-signal-4 = 󰤥
+ramp-signal-5 = 󰤨
+; 	Set packetloss animation
+animation-packetloss-0 = 󰤫
+animation-packetloss-0-foreground = ${colors.foreground-urgent}
+animation-packetloss-1 = 󰤩
+animation-packetloss-1-foreground = ${colors.foreground-urgent}
+; 	Set animation packetloss framerate
+animation-packetloss-framerate = 500
+

@@ -79,6 +79,7 @@ create ()
 		case $response in
 			y)
 				echo "Overriding $1 config..."
+				echo
 				rm -r ./dotfiles/configs/$1
 				;;
 

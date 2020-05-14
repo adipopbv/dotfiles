@@ -1,0 +1,115 @@
+/*
+*================================================================
+* 
+* 
+*   rofi configuration by adipopbv (adi.pop.bv@gmail.com).
+*   ~/.config/rofi/glaciar-flow.rasi - rofi theme config file.
+*
+*
+*================================================================
+*/
+
+/* Global */
+* {
+	/* Text and background colors */
+	text-color: #FFFFFF;
+	background-color: rgba(0,0,0,0);
+	highlight: bold #FFFFFF;
+	
+	/* General colors */
+	/* 	White */
+	white:      #EEEEEE;
+	/* 	Grey */
+	grey:       rgba(38, 39, 43, 1);
+	lightgrey:  rgba(38, 39, 43, 0.8);
+	/* 	Brown */
+	brown:      #5D423C;
+	lightbrown: #7D463B;
+}
+
+/* Window */
+#window {
+    fullscreen: true;
+    location: west;
+    anchor: west;
+    border: 0px 0px 0px 0px;
+    orientation: horizontal;
+    children: [mainbox];
+}
+
+/* Sidebar */
+#sidebar {
+    border: 2px 2px 2px 2px;
+    background-color: @grey;
+    padding: 5px;
+}
+
+/* Selected button */
+#button selected {
+	background-color: @white;
+    text-color: @grey;
+}
+
+/* List entry */
+#entry {
+    width: 400px;
+}
+
+/* Input bar */
+#inputbar {
+    background-color: @grey;
+    text-color: @white;
+    padding: 3px;
+    border: 0px 0px 2px 0px;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+/* Input bar prompt */
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 5px 0px 0px;
+}
+
+/* List body */
+#mainbox {
+    expand: false;
+    background-color: @lightgrey;
+}
+
+/* List itself */
+#listview {
+    padding: 30px 30px 30px 30px;
+    dynamic: true;
+    lines: 0;
+}
+
+/* List elements */
+#element selected normal {
+    background-color: @white;
+    text-color: @grey;
+}
+#element selected active {
+    background-color: @white;
+    text-color: @grey;
+}
+#element selected urgent {
+    background-color: @brown;
+    text-color: @grey;
+}
+#element normal active {
+    text-color: @white;
+}
+#element normal urgent {
+    text-color: @brown;
+}
+#element alternate normal {
+    text-color: @white;
+}
+#element alternate active {
+    text-color: @white;
+}
+#element alternate urgent {
+    text-color: @brown;
+}
+

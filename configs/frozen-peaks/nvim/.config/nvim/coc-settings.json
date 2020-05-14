@@ -1,0 +1,15 @@
+{
+	"languageserver": {
+		"cmake": {
+			"command": "cmake-language-server",
+			"filetypes": [
+				"cmake"
+			],
+			"rootPatterns": [
+				"build/"
+			]
+		}
+    },
+	"python.jediEnabled": false
+}
+

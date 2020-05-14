@@ -1,0 +1,6 @@
+/* vte based terminals esthetics */
+VteTerminal, vte-terminal {
+	/* text padding */
+	padding: 40px;
+}
+

@@ -50,6 +50,14 @@ set $wsp8 8:misc2
 set $wsp9 9:misc3
 set $wsp10 10:starred
 
+# Colors
+set $black     "#000000"
+set $darkgrey  "#292929"
+set $grey      "#757575"
+set $lightgrey "#BABABA"
+set $blue      "#5D82A8"
+set $lightblue "#8096AC"
+
 # ===== Windows & Containers =====
 
 # Window aesthetic settings
@@ -58,15 +66,15 @@ font pango:Noto Sans Regular 13
 # 	Hide window title bars
 for_window [class="^.*"] border pixel 3
 # 	Window colors
-# 	<colorclass>        <border>  <bkgrnd>  <text>    <indicator>
+# 	<colorclass>        <border>     <background> <text>       <indicator>
 # 		Currently focused window
-client.focused          "#000000" "#bababa" "#000000" "#7d463b"
+client.focused          $black       $lightgrey   $black       $blue
 # 		Focused window from the other containers
-client.focused_inactive "#000000" "#757575" "#000000" "#5d423c"
+client.focused_inactive $black       $grey        $black       $lightblue
 # 		Unfocused windows
-client.unfocused        "#000000" "#292929" "#000000" "#292929"
+client.unfocused        $black       $darkgrey    $black       $darkgrey
 # 		Unfocused windows with urgency hint active
-client.urgent           "#000000" "#7d463b" "#000000" "#000000"
+client.urgent           $black       $blue        $black       $black
 
 # ===== Workspaces =====
 

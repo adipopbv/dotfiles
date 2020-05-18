@@ -74,8 +74,8 @@ create ()
 	if [ -e ./dotfiles/configs/$1 ] ; then
 		echo "Warning: a config with that name already exists!"
 		printf "    Do you want to override it? (y/N): "
-		echo
 		read response
+		echo
 		case $response in
 			y)
 				echo "Overriding $1 config..."

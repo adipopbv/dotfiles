@@ -11,6 +11,14 @@
 		<img src="https://img.shields.io/github/stars/adipopbv/dotfiles?style=flat-square">
 		<img src="https://img.shields.io/badge/distro-Pop!__OS-48b9c7?style=flat-square">
 	</p>
+	<p align="center"> 
+		<a href="https://github.com/adipopbv/dotfiles/wiki">
+			<img src="./.github/pictures/button-wiki-grey.png" width="100px">
+		</a>
+		<a href="https://github.com/adipopbv/dotfiles/wiki/Gallery">
+			<img src="./.github/pictures/button-gallery-grey.png" width="100px">
+		</a>
+	</p>
 </h1>
 
 <h2 align="center"><i> Welcome to my (currently not so) charming dotfiles stash! </i></h2>
@@ -22,6 +30,7 @@
 	- [Operating System](#operating-system)
 	- [Notable Software](#notable-software)
 	- [Dotman](#dotman)
+- [Configs](#configs)
 
 ## Intro
 
@@ -86,9 +95,19 @@ So... Let me explain my mentality.
 - I have a `current-config` dir which has the currently stored config files, symlinked to the required dirs.
 	- The `current-config` is separated from all other `config`, it is a stand-alone configuration.
 
-Here does the mighty __Dotman__ utility come in.
+Here does the mighty __Dotman__ utility come in:
 - Dotman is taking care of customizations management.
 	- It can list avalilable configs
 	- It creates new configs from the current one
 	- It sets configs
-	- And for now that's all...
+	- And for now that's all... In the future it might even install and uninstall packages and set up a freshly installed system.
+- I might release dotman as a full utility program at some point, but for now it's only a script based on GNU's [stow](https://www.gnu.org/software/stow/).
+
+## Configs
+
+Each config is a (mostly) unique mashup of programs, colorschemes, bindings, scripts and more.
+
+Check out the [wiki](https://github.com/adipopbv/dotfiles/wiki) for a full documentation of the configs.
+
+Check out the [gallery](https://github.com/adipopbv/dotfiles/wiki/Gallery)!
+

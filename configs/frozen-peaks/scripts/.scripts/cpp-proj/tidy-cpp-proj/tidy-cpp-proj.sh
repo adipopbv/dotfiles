@@ -24,8 +24,8 @@ elif [ $1 = "-a" ] || [ $1 = "--app" ] ; then
 		exit 1
 	fi
 	cd "$buildPath"
-	echo "Clang tidy 9 running...\n"
-	clang-tidy-9 -checks="*,-fuchsia*,-readability-convert-member-functions-to-static,-readability-redundant-string-init,-modernize-use-trailing-return-type,-modernize-loop-convert,-performance-unnecessary-value-param,-hicpp-exception-baseclass,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers" `find "../src/" -type f -name \*.cpp` -- -Imy_project/include -DMY_DEFINES ...
+	echo "Clang tidy running...\n"
+	clang-tidy -checks="*,-fuchsia*,-readability-convert-member-functions-to-static,-readability-redundant-string-init,-modernize-use-trailing-return-type,-modernize-loop-convert,-performance-unnecessary-value-param,-hicpp-exception-baseclass,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers" `find "../src/" -type f -name \*.cpp` -- -Imy_project/include -DMY_DEFINES ...
 	echo
 	read -p "Press ENTER to continue..." response
 	exit 0

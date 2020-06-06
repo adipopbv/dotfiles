@@ -37,6 +37,8 @@ set $compositor $HOME/.config/compton/launch-compton.sh
 set $notifications $HOME/.config/dunst/launch-dunst.sh
 # Setting the wallpaper
 set $wallpaper $HOME/.config/wallpaper/frozen-peaks.jpg
+# Setting the audio controller app
+set $audioctl pavucontrol
 
 # Workspaces variable names
 set $wsp1 1:web
@@ -140,6 +142,8 @@ bindsym $mod+e exec $TERMINAL -e "$explorer"
 bindsym $mod+w exec $BROWSER
 # 	Start the app launcher
 bindsym $mod+a exec $launcher
+# 	Start the audio controlls
+bindsym $mod+p exec $audioctl
 
 # Kill focused window
 bindsym $mod+q kill

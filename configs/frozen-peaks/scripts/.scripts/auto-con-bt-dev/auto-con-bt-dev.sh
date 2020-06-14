@@ -66,7 +66,7 @@ do
 	# test the connection status of the given device
 	if [ `bt-device -i $macaddress | grep -i "connected" | awk '{print $2}'` = 0 ] ; then
 		# connect to device via bluetoothctl command if not connected already
-		`bluetoothctl << EOF > /dev/null 2>&1
+		`bluetoothctl << EOF >> /tmp/auto-con-bt-dev.log 2>&1
 		connect $macaddress
 		EOF`
 	fi

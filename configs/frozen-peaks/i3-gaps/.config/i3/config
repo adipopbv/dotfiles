@@ -123,13 +123,17 @@ for_window [class=".*-run"] floating enabled
 # Touchpad properties
 #  ximput set-prop <device> <property> <value>
 # 	Touch click
-exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "tapping enabled (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 1
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "tapping enabled (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 1
 # 	Natural scrolling
-exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "natural scrolling enabled (" | awk '{print $5}' | grep -o "[0-9][0-9][0-9]") 1 
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "natural scrolling enabled (" | awk '{print $5}' | grep -o "[0-9][0-9][0-9]") 1 
 # 	Cursor speed
-exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 0.45 
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 0.45 
 # 	Disable touchpad if mouse is plugged in with touchpad-indicator
 exec_always touchpad-indicator
+
+# Mouse properties
+#   Speed
+#exec_always xinput set-prop $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") -0.85
 
 # ===== Bindings =====
 

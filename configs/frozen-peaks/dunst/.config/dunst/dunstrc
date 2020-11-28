@@ -137,7 +137,7 @@
     # 	Define the class of the windows spawned by dunst
     class = Dunst
     # 	Print a notification on startup
-    startup_notification = true
+    startup_notification = false
     # 	Manage dunst's desire for talking
     # 		crit: Critical features. Dunst aborts
     # 		warn: Only non-fatal warnings

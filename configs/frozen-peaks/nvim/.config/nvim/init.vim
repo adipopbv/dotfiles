@@ -24,6 +24,9 @@ source $HOME/.config/nvim/plugins.vim
 " 	IDE settings
 source $HOME/.config/nvim/ide.vim
 
+" Copy to system clipboard
+set clipboard=unnamed,unnamedplus
+
 " Line numbers
 "	Set relative line numbers and normal for the current one
 set rnu nu

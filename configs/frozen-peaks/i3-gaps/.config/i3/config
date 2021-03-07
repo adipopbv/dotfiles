@@ -36,7 +36,7 @@ set $compositor $HOME/.config/compton/launch-compton.sh
 # Setting notification system to dunst
 set $notifications $HOME/.config/dunst/launch-dunst.sh
 # Setting the wallpaper
-set $wallpaper $HOME/.config/wallpaper/frozen-peaks.jpg
+set $wallpaper $HOME/.config/wallpaper/wallpaper.jpg
 # Setting the audio controller app
 set $audioctl pavucontrol
 
@@ -117,6 +117,10 @@ exec_always "$SCRIPTSPATH/auto-con-bt-dev/launch-auto-con-bt-dev.sh --name 'HD 4
 # Execute programs in floating windows
 # 	Apps made with my cpp-proj utilities
 for_window [class=".*-run"] floating enabled
+# 	Apps made with JavaFx
+for_window [class=".*JavaFx.*"] floating enable
+# 	GNU Octave
+for_window [class="GNU Octave"] floating enable
 
 # ===== Devices =====
 
@@ -133,7 +137,7 @@ exec_always touchpad-indicator
 
 # Mouse properties
 #   Speed
-#exec_always xinput set-prop $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") -0.85
+exec_always xinput set-prop $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") -0.85
 
 # ===== Bindings =====
 
@@ -274,9 +278,9 @@ bindsym $mod+Print       exec --no-startup-id shutter -f
 bindsym $mod+Shift+Print exec --no-startup-id shutter -s
 # 	Brightness
 # 		Up
-bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 50
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
 # 		Down
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 50
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 # 	Volume
 # 		Up
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+; exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 0; exec pkill -RTMIN+1 i3blocks

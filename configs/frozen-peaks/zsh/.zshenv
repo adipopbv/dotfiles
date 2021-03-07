@@ -62,7 +62,7 @@ if [ -f "/usr/bin/ranger" ] ; then ; export EXPLORER="ranger" ; fi
 
 # BROWSER variable
 # 	set the default web browser to firefox nightly
-if [ -f "/usr/bin/firefox-trunk" ] ; then ; export BROWSER="firefox-trunk"
+if [ -f "/usr/bin/firefox-nightly" ] ; then ; export BROWSER="firefox-nightly"
 # 	set the default web browser to firefox if the other is not installed
 elif [ -f "/usr/bin/firefox" ] ; then ; export BROWSER="firefox" ; fi
 

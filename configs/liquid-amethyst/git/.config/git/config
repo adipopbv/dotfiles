@@ -1,0 +1,48 @@
+#===========================================================
+#
+#
+#    █████╗ ██╗███████╗
+#   ██╔═══╝ ╚═╝╚═██╔══╝
+#   ██║███╗ ██╗  ██║   
+#   ██║╚═██╗██║  ██║   
+#   ╚█████╔╝██║  ██║   
+#    ╚════╝ ╚═╝  ╚═╝   
+#
+#
+#   git configuration by adipopbv (adi.pop.bv@gmail.com).
+#   ~/.config/git/config - git user-specific config file.
+#   Go to https://git-scm.com/doc for more info.
+#
+#
+#===========================================================
+
+# Core settings
+[core]
+	# Handle file endings
+	autocrlf = input
+	# Set pager
+	pager = less
+
+# Help settings
+[help]
+	# Autocorrect typing mistakes after 3 seconds
+	autocorrect = 30
+
+# Aliases
+[alias]
+	# Colorful and compact commit tree
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+
+# User info
+[user]
+	# Email
+	email = adi.pop.bv@gmail.com
+	name = Adrian Pop
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main

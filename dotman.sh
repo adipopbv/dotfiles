@@ -43,17 +43,17 @@ set ()
 	echo
 
 	# abort if config inexistent
-	if [ ! -e ./dotfiles/configs/$1 ] ; then
+	if [ ! -e ~/dotfiles/configs/$1 ] ; then
 		echo "Error: no config with that name."
 		exit 2
 	fi
 
 	# update current config
-	rm -r ./dotfiles/current-config
-	mkdir ./dotfiles/current-config
-	cp -r ./dotfiles/configs/$1/* ./dotfiles/current-config
+	rm -r ~/dotfiles/current-config
+	mkdir ~/dotfiles/current-config
+	cp -r ~/dotfiles/configs/$1/* ~/dotfiles/current-config
 	# symlink current config files to original locations
-	cd ./dotfiles/current-config
+	cd ~/dotfiles/current-config
 	stow * -t ../.. --adopt
 	cd ../..
 
@@ -71,7 +71,7 @@ create ()
 	echo "Creating new config named $1..."
 	echo
 
-	if [ -e ./dotfiles/configs/$1 ] ; then
+	if [ -e ~/dotfiles/configs/$1 ] ; then
 		echo "Warning: a config with that name already exists!"
 		printf "    Do you want to override it? (y/N): "
 		read response
@@ -80,7 +80,7 @@ create ()
 			y)
 				echo "Overriding $1 config..."
 				echo
-				rm -r ./dotfiles/configs/$1
+				rm -r ~/dotfiles/configs/$1
 				;;
 
 			*)
@@ -92,8 +92,8 @@ create ()
 	fi
 
 	# creating the config
-	mkdir ./dotfiles/configs/$1
-	cp -r ./dotfiles/current-config/* ./dotfiles/configs/$1
+	mkdir ~/dotfiles/configs/$1
+	cp -r ~/dotfiles/current-config/* ~/dotfiles/configs/$1
 
 	# print status
 	test $? -eq 0 && echo "Operation successful."
@@ -149,7 +149,7 @@ config ()
 				shift
 				echo "Available configurations:"
 				echo
-				ls -l ./dotfiles/configs | grep "^d" | awk '{ print $9 }'
+				ls -l ~/dotfiles/configs | grep "^d" | awk '{ print $9 }'
 				;;
     
 			set)

@@ -1,0 +1,15 @@
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5 COMPONENTS Widgets Core REQUIRED)
+
+set(BINARY ${CMAKE_PROJECT_NAME})
+file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
+set(SOURCES ${SOURCES})
+add_executable(${BINARY}-run ${SOURCES})
+add_library(${BINARY}-lib STATIC ${SOURCES})
+
+target_link_libraries(${BINARY}-run PRIVATE Qt5::Widgets Qt5::Core)
+target_link_libraries(${BINARY}-lib PRIVATE Qt5::Widgets Qt5::Core)
+

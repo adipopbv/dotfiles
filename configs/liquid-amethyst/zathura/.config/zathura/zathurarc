@@ -1,0 +1,80 @@
+#==========================================================================
+#
+#
+#   ███████╗ █████╗ ███████╗██╗  ██╗██╗  ██╗██████╗  █████╗ 
+#   █╔══██╔╝██╔══██╗╚═██╔══╝██║  ██║██║  ██║██╔══██╗██╔══██╗
+#   ╚╝███╔╝ ███████║  ██║   ███████║██║  ██║██████╔╝███████║
+#    ██╔═╝█╗██╔══██║  ██║   ██╔══██║██║  ██║██╔══██╗██╔══██║
+#   ███████║██║  ██║  ██║   ██║  ██║╚█████╔╝██║  ██║██║  ██║
+#   ╚══════╝╚═╝  ╚═╝  ╚═╝   ╚═╝  ╚═╝ ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+#
+#
+#   zathura config by adipopbv (adi.pop.bv@gmail.com).
+#   ~/.config/zathura/zathurarc - zathura config file.
+#   Go to https://pwmt.org/projects/zathura/documentation for more info.
+#
+#
+#==========================================================================
+
+# Copy selection to system clipboard
+set selection-clipboard clipboard
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+# Stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# Zoom settings
+set zoom-min 10
+set guioptions ""
+
+# Theme
+set font "Noto Sans 12"
+set default-bg "#26272B"
+set default-fg "#F7F7F6"
+
+set statusbar-fg "#B0B0B0"
+set statusbar-bg "#26272B"
+
+set inputbar-bg "#26272B"
+set inputbar-fg "#FFFFFF"
+
+set notification-error-bg "#AC4142"
+set notification-error-fg "#26272B"
+
+set notification-warning-bg "#AC4142"
+set notification-warning-fg "#26272B"
+
+set highlight-color "#F4BF75"
+set highlight-active-color "#6A9FB5"
+
+set completion-highlight-fg "#26272B"
+set completion-highlight-bg "#90A959"
+
+set completion-bg "#26272B"
+set completion-fg "#E0E0E0"
+
+set notification-bg "#90A959"
+set notification-fg "#26272B"
+
+set recolor "true"
+set recolor-lightcolor "#26272B"
+set recolor-darkcolor "#FFFFFF"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+set render-loading "false"
+set scroll-step 50
+
+# Fullscreen
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+

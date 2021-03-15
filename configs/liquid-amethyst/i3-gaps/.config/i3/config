@@ -1,0 +1,347 @@
+#===============================================================
+#   
+#
+#   ██╗ █████╗          █████╗  █████╗ ██████╗  █████╗ 
+#   ╚═╝██╔══██╗        ██╔═══╝ ██╔══██╗██╔══██╗███╔══█╗
+#   ██╗╚═╝███╔╝ █████╗ ██║███╗ ███████║██████╔╝╚█████╚╝
+#   ██║██ ╚═██╗ ╚════╝ ██║╚═██╗██╔══██║██╔═══╝ █╗  ███╗
+#   ██║╚█████╔╝        ╚█████╔╝██║  ██║██║     ╚█████╔╝
+#   ╚═╝ ╚════╝          ╚════╝ ╚═╝  ╚═╝╚═╝      ╚════╝ 
+#   
+#   
+#   i3-gaps configuration by adipopbv (adi.pop.bv@gmail.com).
+#   ~/.config/i3/config - i3-gaps settings file.
+#   Go to https://i3wm.org/docs/ for more info.
+#   
+#   
+#===============================================================
+
+# i3 config file (v4)
+
+# ===== Variables =====
+
+# Setting mod key to windows/super key (Mod4)
+set $mod Mod4
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# Setting the file explorer to ranger
+set $explorer ranger
+# Setting the app launcher to rofi
+set $launcher rofi -show drun
+# Setting the status bar to polybar
+set $bar $HOME/.config/polybar/launch-polybar.sh
+# Setting the compositor to compton-tryone
+set $compositor $HOME/.config/compton/launch-compton.sh
+# Setting notification system to dunst
+set $notifications $HOME/.config/dunst/launch-dunst.sh
+# Setting the wallpaper
+set $wallpaper $HOME/.config/wallpaper/wallpaper.jpg
+# Setting the audio controller app
+set $audioctl pavucontrol
+
+# Workspaces variable names
+set $wsp1 1:web
+set $wsp2 2:term
+set $wsp3 3:code
+set $wsp4 4:social
+set $wsp5 5:music
+set $wsp6 6:games
+set $wsp7 7:misc1
+set $wsp8 8:misc2
+set $wsp9 9:misc3
+set $wsp10 10:starred
+
+# Colors
+set $black     "#000000"
+set $darkgrey  "#292929"
+set $grey      "#757575"
+set $lightgrey "#BABABA"
+set $blue      "#5D82A8"
+set $lightblue "#8096AC"
+
+# Corners
+border_radius 10
+
+# ===== Windows & Containers =====
+
+# Window aesthetic settings
+# 	Font for window titles
+font pango:Noto Sans Regular 14
+# 	Hide window title bars
+for_window [class="^.*"] border pixel 0
+# 	Window colors
+# 	<colorclass>        <border>     <background> <text>       <indicator>
+# 		Currently focused window
+client.focused          $black       $lightgrey   $black       $blue
+# 		Focused window from the other containers
+client.focused_inactive $black       $grey        $black       $lightblue
+# 		Unfocused windows
+client.unfocused        $black       $darkgrey    $black       $darkgrey
+# 		Unfocused windows with urgency hint active
+client.urgent           $black       $blue        $black       $black
+
+# ===== Workspaces =====
+
+# Asssign apps to always open in certain workspaces
+# 	Web
+assign [class="Nightly"] $wsp1
+# 	Social
+assign [class="Skype"] $wsp4
+assign [class="discord"] $wsp4
+assign [class="Microsoft Teams - Preview"] $wsp4
+# 	Music
+for_window [class="Spotify"] move to workspace $wsp5
+# 	Games
+assign [class="Lutris"] $wsp6
+assign [class="Steam"] $wsp6
+assign [class="itch"] $wsp6
+
+# ===== Programs =====
+
+# Execute commands
+# 	Adjust screens settings
+# 		Nvidia mode
+exec_always xrandr --output eDP-1-1 --mode 1920x1080 --rate 144
+exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 60
+# 		Hybrid and Integrated mode
+exec_always xrandr --output eDP-1 --mode 1920x1080 --rate 144
+exec_always xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60
+# 	Start the compositor
+exec_always $compositor
+# 	Start status bar
+exec_always $bar
+# 	Set wallpaper
+exec_always feh --bg-fill $wallpaper
+# 	Hides the cursor when is not needed
+exec unclutter -root
+# 	Start notifications service
+exec_always --no-startup-id $notifications
+
+# Execute custom scripts
+# 	Disable the screen saver
+exec "$SCRIPTSPATH/disable-screen-saver/disable-screen-saver.sh"
+# 	Auto connect bluetooth audio headset
+exec_always "$SCRIPTSPATH/auto-con-bt-dev/launch-auto-con-bt-dev.sh --name 'HD 4.40BT'"
+
+# Execute programs in floating windows
+# 	Apps made with my cpp-proj utilities
+for_window [class=".*-run"] floating enabled
+# 	Apps made with JavaFx
+for_window [class=".*JavaFx.*"] floating enable
+# 	GNU Octave
+for_window [class="GNU Octave"] floating enable
+
+# ===== Devices =====
+
+# Touchpad properties
+#  ximput set-prop <device> <property> <value>
+# 	Touch click
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "tapping enabled (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 1
+# 	Natural scrolling
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "natural scrolling enabled (" | awk '{print $5}' | grep -o "[0-9][0-9][0-9]") 1 
+# 	Cursor speed
+#exec xinput set-prop $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "touchpad" | awk '{print $6}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") 0.45 
+# 	Disable touchpad if mouse is plugged in with touchpad-indicator
+exec_always touchpad-indicator
+
+# Mouse properties
+# 	Razer Mamba Wireless Receiver
+#   	Speed
+exec_always xinput set-prop $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "razer mamba wireless receiver  " | awk '{print $8}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") -0.85
+# 	Razer Mamba Wireless 
+#   	Speed
+exec_always xinput set-prop $(xinput list | grep -i "⎜   ↳ Razer Razer Mamba Wireless              	id" | awk '{print $7}' | grep -o "[0-9][0-9]") $(xinput list-props $(xinput list | grep -i "⎜   ↳ Razer Razer Mamba Wireless              	id" | awk '{print $7}' | grep -o "[0-9][0-9]") | grep -i "accel speed (" | awk '{print $4}' | grep -o "[0-9][0-9][0-9]") -0.85
+
+# ===== Bindings =====
+
+# Essential apps
+# 	Start a terminal emulator instance
+bindsym $mod+t exec $TERMINAL
+# 	Start the file explorer
+bindsym $mod+e exec $TERMINAL -e "$explorer"
+# 	Start the web browser
+bindsym $mod+w exec $BROWSER
+# 	Start the app launcher
+bindsym $mod+a exec $launcher
+# 	Start the audio controlls
+bindsym $mod+p exec $audioctl
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Windows functional settings
+# 	Change window focus
+# 		Vim-like
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# 		Normal
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+# 	Move focused window
+# 		Vim-like
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# 		Normal
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+# 	Split toggle
+bindsym $mod+v split toggle
+# 	Enter fullscreen mode for the focused window
+bindsym $mod+f fullscreen toggle
+# 	Layout toggle split
+bindsym $mod+s layout toggle split
+# 	Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# 	Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# 	Resize window (you can also use the mouse for that)
+mode "resize" {
+	# Vim-like
+	bindsym h resize grow left 2 px or 2 ppt
+	bindsym j resize grow down 2 px or 2 ppt
+	bindsym k resize grow up 2 px or 2 ppt
+	bindsym l resize grow right 2 px or 2 ppt
+
+	bindsym Shift+h resize shrink left 2 px or 2 ppt
+	bindsym Shift+j resize shrink down 2 px or 2 ppt
+	bindsym Shift+k resize shrink up 2 px or 2 ppt
+	bindsym Shift+l resize shrink right 2 px or 2 ppt
+
+	bindsym Ctrl+h resize grow left 1 px
+	bindsym Ctrl+j resize grow down 1 px
+	bindsym Ctrl+k resize grow up 1 px
+	bindsym Ctrl+l resize grow right 1 px
+
+	bindsym Ctrl+Shift+h resize shrink left 1 px
+	bindsym Ctrl+Shift+j resize shrink down 1 px
+	bindsym Ctrl+Shift+k resize shrink up 1 px
+	bindsym Ctrl+Shift+l resize shrink right 1 px
+
+	# Normal
+	bindsym Left resize grow left 2 px or 2 ppt
+	bindsym Down resize grow down 2 px or 2 ppt
+	bindsym Up resize grow up 2 px or 2 ppt
+	bindsym Right resize grow right 2 px or 2 ppt
+
+	bindsym Shift+Left resize shrink left 2 px or 2 ppt
+	bindsym Shift+Down resize shrink down 2 px or 2 ppt
+	bindsym Shift+Up resize shrink up 2 px or 2 ppt
+	bindsym Shift+Right resize shrink right 2 px or 2 ppt
+
+	bindsym Ctrl+Left resize grow left 1 px
+	bindsym Ctrl+Down resize grow down 1 px
+	bindsym Ctrl+Up resize grow up 1 px
+	bindsym Ctrl+Right resize grow right 1 px
+
+	bindsym Ctrl+Shift+Left resize shrink left 1 px
+	bindsym Ctrl+Shift+Down resize shrink down 1 px
+	bindsym Ctrl+Shift+Up resize shrink up 1 px
+	bindsym Ctrl+Shift+Right resize shrink right 1 px
+
+	# Back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+# 	Start resizing mode
+bindsym $mod+r mode "resize"
+
+# Workspaces functional settings
+# 	Switch to workspace
+bindsym $mod+1 workspace $wsp1
+bindsym $mod+2 workspace $wsp2
+bindsym $mod+3 workspace $wsp3
+bindsym $mod+4 workspace $wsp4
+bindsym $mod+5 workspace $wsp5
+bindsym $mod+6 workspace $wsp6
+bindsym $mod+7 workspace $wsp7
+bindsym $mod+8 workspace $wsp8
+bindsym $mod+9 workspace $wsp9
+bindsym $mod+0 workspace $wsp10
+# 	Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace $wsp1
+bindsym $mod+Shift+2 move container to workspace $wsp2
+bindsym $mod+Shift+3 move container to workspace $wsp3
+bindsym $mod+Shift+4 move container to workspace $wsp4
+bindsym $mod+Shift+5 move container to workspace $wsp5
+bindsym $mod+Shift+6 move container to workspace $wsp6
+bindsym $mod+Shift+7 move container to workspace $wsp7
+bindsym $mod+Shift+8 move container to workspace $wsp8
+bindsym $mod+Shift+9 move container to workspace $wsp9
+bindsym $mod+Shift+0 move container to workspace $wsp10
+
+# i3wm misc
+# 	Reload the configuration file
+bindsym $mod+Shift+c reload
+# 	Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# 	Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar --type warning --font 'pango:Noto Sans Regular 10' --message 'Do you really want to exit i3? This will end your X session.' --button 'Yes' 'i3-msg exit'"
+
+# Other binds
+# 	Screenshots
+bindsym $mod+Print       exec --no-startup-id shutter -f
+bindsym $mod+Shift+Print exec --no-startup-id shutter -s
+# 	Brightness
+# 		Up
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
+# 		Down
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
+# 	Volume
+# 		Up
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+; exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 0; exec pkill -RTMIN+1 i3blocks
+# 		Down
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB-; exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 0; exec pkill -RTMIN+1 i3blocks
+# 		Mute audio
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle; exec pkill -RTMIN+1 i3blocks
+# 		Mute microphone
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle
+
+# ===== i3-gaps specific =====
+
+# Gaps sizes
+# 	Set inner gaps
+gaps inner 40
+# 	Set outer gaps
+gaps outer 30
+
+# Gaps adjusting mode
+mode "gaps" {
+	# Adjust inner gap size
+	# 	Vim-like
+	bindsym j gaps inner current minus 5
+	bindsym Shift+j gaps inner current minus 15
+	bindsym k gaps inner current plus 5
+	bindsym Shift+k gaps inner current plus 15
+	# 	Normal
+	bindsym Down gaps inner current minus 5
+	bindsym Shift+Down gaps inner current minus 15
+	bindsym Up gaps inner current plus 5
+	bindsym Shift+Up gaps inner current plus 15
+
+	# Adjust outer gaps size
+	# 	Normal
+	bindsym o gaps outer current plus 5
+	bindsym i gaps outer current minus 5
+	# 	Bigger
+	bindsym Shift+o gaps outer current plus 15
+	bindsym Shift+i gaps outer current minus 15
+
+	# Set all gaps to 0
+	bindsym 0 gaps inner current set 0; gaps outer current set 0
+
+	# Back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+# 	Start gaps adjusting mode
+bindsym $mod+g mode "gaps"
+

@@ -1,0 +1,60 @@
+/*
+*==================================================================
+* 
+*
+*   ██████╗  █████╗ ███████╗██╗
+*   ██╔══██╗██╔══██╗██╔════╝╚═╝
+*   ██████╔╝██║  ██║█████╗  ██╗
+*   ██╔══██╗██║  ██║██╔══╝  ██║
+*   ██║  ██║╚█████╔╝██║     ██║
+*   ╚═╝  ╚═╝ ╚════╝ ╚═╝     ╚═╝
+*
+*
+*   rofi configuration by adipopbv (adi.pop.bv@gmail.com).
+*   ~/.config/rofi/glaciar-flow.rasi - rofi theme config file.
+*   Go to https://github.com/davatorium/rofi/wiki for more info.
+*
+*
+*==================================================================
+*/
+
+configuration {
+	modi: "window,run,ssh,drun";
+	width: 60;
+	lines: 20;
+	columns: 2;
+	font: "Noto Sans 12";
+	location: 0;
+	padding: 8;
+	yoffset: 0;
+	xoffset: 0;
+	fixed-num-lines: true;
+	show-icons: true;
+	terminal: "kitty";
+	ssh-client: "ssh";
+	ssh-command: "{terminal} {ssh-client} {host}";
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} {cmd}";
+	window-command: "xkill -id {window}";
+	window-match-fields: "all";
+	drun-icon-theme: "Papirus-Grey";
+	drun-match-fields: "name,generic,exec,categories";
+	disable-history: false;
+	sort: true;
+	levenshtein-sort: false;
+	case-sensitive: false;
+	cycle: true;
+	sidebar-mode: true;
+	auto-select: true;
+	line-margin: 3;
+	line-padding: 3;
+	separator-style: "solid";
+	hide-scrollbar: true;
+	fullscreen: false;
+	click-to-exit: true;
+	show-match: true;
+	theme: "glaciar-flow";
+	max-history-size: 25;
+	kb-primary-paste: "Control+V";
+}

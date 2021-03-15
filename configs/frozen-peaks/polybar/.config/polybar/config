@@ -206,7 +206,7 @@ animation-charging-framerate = 250
 [module/backlight]
 type = internal/backlight
 ; 	Set backlight card
-card = acpi_video0
+card = intel_backlight
 ; 	Enable changing backlight with scroll wheel
 enable-scroll = false
 ; 	Set the module format

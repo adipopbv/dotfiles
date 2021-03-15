@@ -5,11 +5,11 @@
 		adipopbv's dotfiles
 	</font></strong>
 	<p align="center"> 
-		<img src="https://img.shields.io/github/license/adipopbv/dotfiles?style=flat-square">
-		<img src="https://img.shields.io/github/issues/adipopbv/dotfiles?style=flat-square">
-		<img src="https://img.shields.io/github/issues-pr/adipopbv/dotfiles?style=flat-square">
-		<img src="https://img.shields.io/github/stars/adipopbv/dotfiles?style=flat-square">
-		<img src="https://img.shields.io/badge/distro-Pop!__OS-48b9c7?style=flat-square">
+		<img src="https://img.shields.io/github/license/adipopbv/dotfiles?color=yellow&style=flat-square">
+		<img src="https://img.shields.io/github/issues/adipopbv/dotfiles?color=red&style=flat-square">
+		<img src="https://img.shields.io/github/issues-pr/adipopbv/dotfiles?color=brightgreen&style=flat-square">
+		<img src="https://img.shields.io/github/stars/adipopbv/dotfiles?color=blueviolet&style=flat-square">
+		<img src="https://img.shields.io/badge/distro-Arch-0f94d2?style=flat-square">
 	</p>
 	<p align="center"> 
 		<a href="https://github.com/adipopbv/dotfiles/wiki">
@@ -26,19 +26,27 @@
 ## Table of Contents:
 
 - [Intro](#intro)
+	- [TLDR](#tldr)
+	- [What is a dotfile?](#what-is-a-dotfile?)
+	- [Disclaimer](#disclaimer)
 - [About](#about)
 	- [Operating System](#operating-system)
 	- [Notable Software](#notable-software)
 	- [Dotman](#dotman)
-- [Configs](#configs)
+	- [Configs](#configs)
 
 ## Intro
 
-_Welcome friend... Welcome..._ This right here are the dotfiles for my Pop!_OS install.
+_Welcome friend... Welcome..._ This right here are the dotfiles for my current install.
 
 Here you can find also some useful scripts and utilities I made and found across the internet. Check out each config's __scripts__ directory for them.
 
-#### What the ... is a dotfile?!
+#### TLDR
+
+- If you are looking for specific a **configuration**'s **documentation** or documentations in general, check out [the wiki](https://github.com/adipopbv/dotfiles/wiki).
+- If you are looking for some nice **screenshots** check out [the gallery](https://github.com/adipopbv/dotfiles/wiki/Gallery).
+
+#### What is a dotfile?
 
 Well, to explain better, I have to go back in time. Bun not too much. Let me tell you a little story...
 
@@ -55,9 +63,9 @@ So basicaly a dotfile is a setting file for a program.
 
 #### Disclaimer...
 
-- I want to say that I am new to this whole dotfiles stuff and even linux.
+- **Some stuff might not work as intended**, therefore a backup is always a good idea...
 - I know it's not perfect but I guess it's a good enough start.
-- I am always open to suggestions but I might not have enough time to look into some stuff.
+- I am always **open to suggestions** but I might not have enough time to look into some stuff.
 - I plan to add more stuff when I have more time, but for now this is all I got.
 
 ## About
@@ -65,8 +73,7 @@ So basicaly a dotfile is a setting file for a program.
 #### Operating System:
 
 Well, __Linux__ of course!   
-Ahem... excuse me; __*GNU/Linux*__.   
-__Pop!\_OS__ to be more specific. For now I plan to stick with it but I guess I'll be migrating to an __Arch__ based one, or maybe to __Void__. Who knows...
+__Arch Linux__ to be more specific. For now I plan to stick with it but maybe sometime when I'll have more time I'll switch to __Gentoo__. Who knows...
 
 #### Notable software:
 
@@ -83,17 +90,18 @@ For now, some of the most important software I made custom configs for are the f
 | File Explorer | [ranger](https://github.com/ranger/ranger) |
 | App Launcher | [rofi](https://github.com/davatorium/rofi) |
 | Terminal Shell | [zsh](https://github.com/zsh-users/zsh) |
-| Hotel? | [trivago](https://www.youtube.com/watch?v=dQw4w9WgXcQ) |
 
 #### Dotman:
 
+<img src=".github/pictures/dotfiles-directory-structure.png" align="right" height="500px" hspace="30" vspace="30px">
+
 So... Let me explain my mentality.
 
-- My dotfiles repo is like an archive of multiple `configs`, located in the `configs` dir.   
+- The dotfiles repo is like an archive of multiple `configs`, located in the `configs` dir.   
 	- Each `config` is basicaly a dir with configuration files for some programs.
-	- There can be any number of `configs`, each with different programs, colorschemes, bindings etc.
-- I have a `current-config` dir which has the currently stored config files, symlinked to the required dirs.
-	- The `current-config` is separated from all other `config`, it is a stand-alone configuration.
+	- There can be any number of `configs`, each with configurations for different programs, colorschemes, bindings etc.
+- There is a `current-config` dir which has the currently stored config files, symlinked to the needed paths.
+	- The `current-config` is separated from all other `config`, it is a stand-alone configuration that is not saved by git.
 
 Here does the mighty __Dotman__ utility come in:
 - Dotman is taking care of customizations management.
@@ -103,11 +111,9 @@ Here does the mighty __Dotman__ utility come in:
 	- And for now that's all... In the future it might even install and uninstall packages and set up a freshly installed system.
 - I might release dotman as a full utility program at some point, but for now it's only a script based on GNU's [stow](https://www.gnu.org/software/stow/).
 
-## Configs
+#### Configs
 
 Each config is a (mostly) unique mashup of programs, colorschemes, bindings, scripts and more.
 
 Check out the [wiki](https://github.com/adipopbv/dotfiles/wiki) for a full documentation of the configs.
-
-Check out the [gallery](https://github.com/adipopbv/dotfiles/wiki/Gallery)!
 

@@ -1,20 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-#export ZSH="/home/adipopbv/.oh-my-zsh"
-
-# Path to homebrew installation.
-#export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-#export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-#export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-
-# Path to /opt/bin
-#export PATH="$PATH:/opt/bin"
-
-# Path to golang installation.
-#export PATH=$PATH:/usr/local/go/bin
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -38,10 +21,10 @@ ZSH_THEME="dracula"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -53,7 +36,7 @@ ZSH_THEME="dracula"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -89,29 +72,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Adding pure prompt
 fpath+=~/.zsh/pure
@@ -120,6 +82,7 @@ fpath+=~/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-# Ls command with colors by colorsls
-#source $(dirname $(gem which colorls))/tab_complete.sh
-#alias lc='colorls'
+# Enable vi mode
+bindkey -v
+export KEYTIMEOUT=1
+

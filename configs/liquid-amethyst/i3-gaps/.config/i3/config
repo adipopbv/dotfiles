@@ -86,6 +86,12 @@ client.urgent           $black       $blue        $black       $black
 # Asssign apps to always open in certain workspaces
 # 	Web
 assign [class="Nightly"] $wsp1
+# 	Programming
+assign [class="jetbrains-idea"] $wsp3
+assign [class="jetbrains-rider"] $wsp3
+assign [class="jetbrains-pycharm"] $wsp3
+assign [class="jetbrains-clion"] $wsp3
+assign [class="jetbrains-webstorm"] $wsp3
 # 	Social
 assign [class="Skype"] $wsp4
 assign [class="discord"] $wsp4

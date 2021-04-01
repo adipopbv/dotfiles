@@ -22,6 +22,7 @@
 background = #1E1F29
 background-alt = #FF5555
 background-alt-2 = #F1FA8C
+background-alt-3 = #282a36
 ; 	Foreground
 foreground = #FFFFFF
 foreground-alt = #BD93F9
@@ -34,9 +35,9 @@ transparent = #00FFFFFF
 ; The base bar template
 [bar/base]
 ; 	Monitor display
-monitor =
+monitor = eDP-1
 ; 	Fallback monitor if the main one is not found
-monitor-fallback =
+monitor-fallback = 
 ; 	Placement on bottom
 bottom = false
 ; 	Set fixed center position for the `modules-center` block
@@ -143,6 +144,25 @@ offset-x = 50%:-250
 offset-y = 
 ; 	Place the bar in the bar space or let it be at one place with the other windows
 override-redirect = true
+; 	Add modules to blocks
+modules-left =
+modules-center = i3
+modules-right =
+
+; The bar section at the center top
+[bar/center-top-secondary]
+inherit = bar/base
+; 	Monitor display
+monitor = HDMI-1-0
+; 	Fallback monitor if the main one is not found
+monitor-fallback = eDP-1
+; 	Set width and height (percentage/pixels)
+width = 100%:-10
+; 	Offsets on x and y
+offset-x = 
+offset-y = 
+; 	Place the bar in the bar space or let it be at one place with the other windows
+override-redirect = false
 ; 	Add modules to blocks
 modules-left =
 modules-center = i3
@@ -350,7 +370,7 @@ format-foreground = ${colors.foreground}
 [module/i3]
 type = internal/i3
 ; 	Only show workspaces defined on the same output as the bar
-pin-workspaces = false
+pin-workspaces = true
 ; 	Split the workspace name on ':'
 strip-wsnumbers = true
 ; 	Sort the workspaces by index
@@ -358,9 +378,10 @@ index-sort = false
 ; 	Enable click handler used to focus workspace
 enable-click = true
 ; 	Enable scroll handler used to cycle workspaces
-enable-scroll = false
+enable-scroll = true
 ; 	Set the module format
-format = <label-state> <label-mode>
+format = <label-state> 
+;<label-mode>
 ; 	Set workspaces icons
 ws-icon-0 = 1:web;龜
 ws-icon-1 = 2:term;
@@ -396,10 +417,18 @@ label-urgent-underline= ${colors.foreground-urgent}
 label-urgent-padding = 3
 ; 	Set empty ws label
 label-empty = %icon%
-; 	Set empty ws background
+; 	Set empty ws foreground
 label-empty-foreground = ${colors.background-alt}
 ; 	Set empty ws padding
 label-empty-padding = 3
+; 	Set visible ws label
+label-visible = %icon%
+; 	Set visible ws background
+label-visible-background = ${colors.background-alt-3}
+; 	Set visible ws underline color
+label-visible-underline= ${colors.foreground}
+; 	Set visible ws padding
+label-visible-padding = 3
 
 ; Show wifi status
 [module/wifi]

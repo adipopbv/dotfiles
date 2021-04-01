@@ -52,6 +52,10 @@ set $wsp8 8:misc2
 set $wsp9 9:misc3
 set $wsp10 10:starred
 
+# Screens variable names
+set $scr1 eDp-1
+set $scr2 HDMI-1-0
+
 # Colors
 set $black     "#000000"
 set $darkgrey  "#292929"
@@ -103,16 +107,30 @@ assign [class="Lutris"] $wsp6
 assign [class="Steam"] $wsp6
 assign [class="itch"] $wsp6
 
+# ===== Screens =====
+
+# Asssign apps to always open in certain workspaces
+workspace $wsp1 output $scr1
+workspace $wsp2 output $scr1
+workspace $wsp3 output $scr1
+workspace $wsp4 output $scr2
+workspace $wsp5 output $scr2
+workspace $wsp6 output $scr1
+workspace $wsp7 output $scr1
+workspace $wsp8 output $scr1
+workspace $wsp9 output $scr2
+workspace $wsp10 output $scr2
+
 # ===== Programs =====
 
 # Execute commands
 # 	Adjust screens settings
 # 		Nvidia mode
 exec_always xrandr --output eDP-1-1 --mode 1920x1080 --rate 144
-exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 60
+exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of eDP-1-1
 # 		Hybrid and Integrated mode
 exec_always xrandr --output eDP-1 --mode 1920x1080 --rate 144
-exec_always xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60
+exec_always xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --right-of eDP-1
 # 	Start the compositor
 exec_always $compositor
 # 	Start status bar
@@ -283,6 +301,30 @@ bindsym $mod+Shift+7 move container to workspace $wsp7
 bindsym $mod+Shift+8 move container to workspace $wsp8
 bindsym $mod+Shift+9 move container to workspace $wsp9
 bindsym $mod+Shift+0 move container to workspace $wsp10
+
+# Screen functional settings
+# 	Change screen focus
+# 		Vim-like
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+j focus output down
+bindsym $mod+Ctrl+k focus output up
+bindsym $mod+Ctrl+l focus output right
+# 		Normal
+bindsym $mod+Ctrl+Left  focus output left
+bindsym $mod+Ctrl+Down  focus output down
+bindsym $mod+Ctrl+Up    focus output up
+bindsym $mod+Ctrl+Right focus output right
+# 	Move focused workspace to screen
+# 		Vim-like
+bindsym $mod+Ctrl+Shift+h move workspace to output left
+bindsym $mod+Ctrl+Shift+j move workspace to output down
+bindsym $mod+Ctrl+Shift+k move workspace to output up
+bindsym $mod+Ctrl+Shift+l move workspace to output right
+# 		Normal
+bindsym $mod+Ctrl+Shift+Left  move workspace to output left
+bindsym $mod+Ctrl+Shift+Down  move workspace to output down
+bindsym $mod+Ctrl+Shift+Up    move workspace to output up
+bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # i3wm misc
 # 	Reload the configuration file

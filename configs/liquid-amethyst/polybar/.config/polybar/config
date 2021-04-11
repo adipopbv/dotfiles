@@ -154,8 +154,6 @@ modules-right =
 inherit = bar/base
 ; 	Monitor display
 monitor = HDMI-1-0
-; 	Fallback monitor if the main one is not found
-monitor-fallback = eDP-1
 ; 	Set width and height (percentage/pixels)
 width = 100%:-10
 ; 	Offsets on x and y

@@ -117,7 +117,7 @@ workspace $wsp4 output $scr2
 workspace $wsp5 output $scr2
 workspace $wsp6 output $scr1
 workspace $wsp7 output $scr1
-workspace $wsp8 output $scr1
+workspace $wsp8 output $scr2
 workspace $wsp9 output $scr2
 workspace $wsp10 output $scr2
 

@@ -11,7 +11,7 @@
 *
 *
 *   rofi configuration by adipopbv (adi.pop.bv@gmail.com).
-*   ~/.config/rofi/glaciar-flow.rasi - rofi theme config file.
+*   ~/.config/rofi/liquid-amethyst.rasi - rofi theme config file.
 *   Go to https://github.com/davatorium/rofi/wiki for more info.
 *
 *
@@ -20,9 +20,9 @@
 
 configuration {
 	modi: "window,run,ssh,drun";
-	width: 60;
-	lines: 20;
-	columns: 2;
+	width: 30;
+	lines: 10;
+	columns: 1;
 	font: "Noto Sans 12";
 	location: 0;
 	padding: 8;
@@ -38,7 +38,7 @@ configuration {
 	run-shell-command: "{terminal} {cmd}";
 	window-command: "xkill -id {window}";
 	window-match-fields: "all";
-	drun-icon-theme: "Papirus-Grey";
+	drun-icon-theme: "Dracula";
 	drun-match-fields: "name,generic,exec,categories";
 	disable-history: false;
 	sort: true;
@@ -50,11 +50,11 @@ configuration {
 	line-margin: 3;
 	line-padding: 3;
 	separator-style: "solid";
-	hide-scrollbar: true;
+	hide-scrollbar: false;
 	fullscreen: false;
 	click-to-exit: true;
 	show-match: true;
-	theme: "glaciar-flow";
+	theme: "liquid-amethyst";
 	max-history-size: 25;
 	kb-primary-paste: "Control+V";
 }

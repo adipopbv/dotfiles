@@ -66,6 +66,10 @@ if [ -f "/usr/bin/firefox-nightly" ] ; then ; export BROWSER="firefox-nightly"
 # 	set the default web browser to firefox if the other is not installed
 elif [ -f "/usr/bin/firefox" ] ; then ; export BROWSER="firefox" ; fi
 
+# PYTHONPATH variable
+# 	set tensorflow package location
+export PYTHONPATH="$PYTHONPATH:/opt/tensorflow/models/research"
+
 # oh-my-zsh plugin manager
 # 	set the path to the oh-my-zsh installation
 if [ -d "$HOME/.oh-my-zsh" ] ; then ; export ZSH="$HOME/.oh-my-zsh" ; fi

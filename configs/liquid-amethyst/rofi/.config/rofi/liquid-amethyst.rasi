@@ -1,0 +1,79 @@
+/*
+*================================================================
+* 
+* 
+*   rofi configuration by adipopbv (adi.pop.bv@gmail.com).
+*   ~/.config/rofi/liquid-amethyst.rasi - rofi theme config file.
+*
+*
+*================================================================
+*/
+
+/* Global */
+* {
+	/* Color pallete */
+	primary: #20212B;
+	primary-alt: #282A36;
+	secondary: #BD93F9;
+	secondary-alt: #50FA7B;
+	tertiary: #F1FA8C;
+	tertiary-alt: #FF5555;
+	textual: #FFFFFF;
+	textual-alt: bold #FFFFFF;
+	
+	/* Text and background colors */
+	background-color: #00000000;
+	text-color: @textual;
+	highlight: @textual-alt;
+}
+
+#window {
+	background-color: @primary;
+	border-radius: 10;
+    children: [mainbox];
+}
+
+#inputbar {
+    background-color: @secondary;
+    padding: 10px;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 5px 0px 0px;
+}
+
+#mainbox {
+    background-color: @primary;
+    expand: true;
+}
+#listview {
+    padding: 40px 40px 40px 40px;
+    dynamic: true;
+    lines: 8;
+}
+#element selected {
+    background-color: @secondary;
+    text-color: @textual;
+}
+#element normal active {
+    background-color: @primary;
+    text-color: @textual;
+}
+#element alternate {
+    background-color: @primary;
+    text-color: @textual;
+}
+
+#button {
+	padding: 5px 5px 5px 5px;
+}
+#button normal {
+	background-color: @primary;
+    text-color: @textual;
+}
+#button selected {
+	background-color: @tertiary;
+    text-color: @primary;
+}

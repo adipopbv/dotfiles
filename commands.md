@@ -14,6 +14,7 @@ Did you ever forgot how to add a new font to your install? Did you ever forgot h
 - [Package manager](#package-manager)
 - [Pointing devices](#pointing-devices)
 - [Quality of life](#quality-of-life)
+- [Vim](#vim)
 
 ## Video and display
 
@@ -100,3 +101,9 @@ On the mobile device make sure you are set to the `file transfer` mode and leave
 ### Assistant in the terminal
 
 `tuxi` - internet answer searcher. Like google assistant but less complex
+
+## Vim
+
+### Generate incrementing numbers column
+
+first `<C-v>` and then `g <C-a>`

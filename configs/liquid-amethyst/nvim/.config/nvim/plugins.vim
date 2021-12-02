@@ -36,6 +36,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-scripts/DoxygenToolkit.vim'
 	" 	Git gutter
 	Plug 'airblade/vim-gitgutter'
+	" 	WakaTime
+	Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " Theme

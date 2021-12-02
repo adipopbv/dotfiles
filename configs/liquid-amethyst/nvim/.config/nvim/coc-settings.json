@@ -1,20 +1,38 @@
 {
-	"languageserver": 
-	{
-		"cmake": 
-		{
+	"languageserver": {
+    	"cmake": {
 			"command": "cmake-language-server",
-			"filetypes": 
-			[
-				"cmake"
-			],
-			"rootPatterns": 
-			[
+			"filetypes": ["cmake"],
+			"rootPatterns": [
 				"build/"
-			]
-		}
-    },
-	"java.home": "/home/adipopbv/.jdks/openjdk-15",
+			],
+			"initializationOptions": {
+				"buildDirectory": "build"
+			}
+		},
+		"ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+	},
+	"java.home": "/home/adipopbv/.jdks/openjdk-16.0.1",
 	"python.jediEnabled": false
 }
 

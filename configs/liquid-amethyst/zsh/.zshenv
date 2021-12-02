@@ -61,10 +61,10 @@ if [ -f "/usr/bin/kitty" ] ; then ; export TERMINAL="kitty" ; fi
 if [ -f "/usr/bin/ranger" ] ; then ; export EXPLORER="ranger" ; fi
 
 # BROWSER variable
-# 	set the default web browser to firefox nightly
-if [ -f "/usr/bin/firefox-nightly" ] ; then ; export BROWSER="firefox-nightly"
-# 	set the default web browser to firefox if the other is not installed
-elif [ -f "/usr/bin/firefox" ] ; then ; export BROWSER="firefox" ; fi
+# 	set the default web browser to firefox
+if [ -f "/usr/bin/firefox" ] ; then ; export BROWSER="firefox"
+# 	set the default web browser to firefox nightly if the other is not installed
+elif [ -f "/usr/bin/firefox-nightly" ] ; then ; export BROWSER="firefox-nightly" ; fi
 
 # PYTHONPATH variable
 # 	set tensorflow package location

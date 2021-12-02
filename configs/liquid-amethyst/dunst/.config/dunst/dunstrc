@@ -26,10 +26,19 @@
     # 		keyboard: follow window with keyboard focus
     # 		none: don't follow anything
     follow = mouse
-    # 	The geometry of the window
-    # 		[{widthInPx}]x{heightInNotifsCount}[+/-{xOffsetInPx}+/-{yOffsetInPx}]
-    #geometry = "500x2-0+35"
-	geometry = "0x1-10+65"
+	# 	The width of a single notification
+	# 		can be single number for constant size or (min, max)
+	width = (100, 500)
+	# 	The max height of a single notification
+	height = 100
+	# 	The origin of the notifications on the screen
+	# 		can be one of: top-left top-center top-right bottom-left bottom-center bottom-right left-center center right-center
+	origin = top-right
+	# 	The offset of the notifications on the screen
+	# 		(horizontalxvertical) from the origin
+	offset = 10x65
+	# 	The number of notifications to display vertically at a time
+	notification_limit = 2
     # 	Show how many messages are currently hidden (because of geometry)
     indicate_hidden = yes
     # 	Shrink window if it's smaller than the width
@@ -85,7 +94,7 @@
     # 		%n  progress value if set without any extra characters
     # 		%%  Literal %
     # 	Markup is allowed
-    format = "<b>%a</b> %s"
+    format = "<b>%a</b> | %s: %b"
     # 	Alignment of message text
     # 		Possible values are "left", "center" and "right"
     alignment = center
@@ -123,7 +132,7 @@
     # 	Should a notification popped up from history be sticky or timeout as if it would normally do
     sticky_history = yes
     # 	Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 10
 
     # Misc/Advanced
     # 	dmenu path
@@ -167,18 +176,6 @@
 [experimental]
     # Calculate the dpi to use on a per-monitor basis.
     per_monitor_dpi = false
-
-# Keybindings
-[shortcuts]
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # 	Close notification
-    close = ctrl+space
-    # 	Close all notifications
-    close_all = ctrl+shift+space
-    # 	Redisplay last message(s)
-    history = ctrl+grave
-    # 	Context menu
-    context = ctrl+shift+period
 
 # State specific settings
 # 	Low urgency

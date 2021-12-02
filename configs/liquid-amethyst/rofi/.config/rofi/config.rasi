@@ -54,7 +54,8 @@ configuration {
 	fullscreen: false;
 	click-to-exit: true;
 	show-match: true;
-	theme: "liquid-amethyst";
 	max-history-size: 25;
 	kb-primary-paste: "Control+V";
 }
+
+@theme "liquid-amethyst"

@@ -89,6 +89,7 @@ client.urgent           $black       $blue        $black       $black
 
 # Asssign apps to always open in certain workspaces
 # 	Web
+assign [class="firefox"] $wsp1
 assign [class="Nightly"] $wsp1
 # 	Programming
 assign [class="jetbrains-idea"] $wsp3
@@ -96,6 +97,7 @@ assign [class="jetbrains-rider"] $wsp3
 assign [class="jetbrains-pycharm"] $wsp3
 assign [class="jetbrains-clion"] $wsp3
 assign [class="jetbrains-webstorm"] $wsp3
+assign [class="jetbrains-studio"] $wsp3
 # 	Social
 assign [class="Skype"] $wsp4
 assign [class="discord"] $wsp4
@@ -128,9 +130,11 @@ workspace $wsp10 output $scr2
 # 		Nvidia mode
 exec_always xrandr --output eDP-1-1 --mode 1920x1080 --rate 144
 exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of eDP-1-1
+#exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --same-as eDP-1-1
 # 		Hybrid and Integrated mode
 exec_always xrandr --output eDP-1 --mode 1920x1080 --rate 144
 exec_always xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --right-of eDP-1
+#exec_always xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --same-as eDP-1
 # 	Start the compositor
 exec_always $compositor
 # 	Start status bar
@@ -355,6 +359,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB-; exe
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle; exec pkill -RTMIN+1 i3blocks
 # 		Mute microphone
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle
+# 	Dunst notifications
+bindsym Ctrl+space exec --no-startup-id dunstctl close
+bindsym Ctrl+Shift+space exec --no-startup-id dunstctl close-all
+bindsym Ctrl+grave exec --no-startup-id dunstctl history-pop
 
 # ===== i3-gaps specific =====
 

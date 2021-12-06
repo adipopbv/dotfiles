@@ -30,7 +30,7 @@
 	# 		can be single number for constant size or (min, max)
 	width = (100, 500)
 	# 	The max height of a single notification
-	height = 100
+	height = 50
 	# 	The origin of the notifications on the screen
 	# 		can be one of: top-left top-center top-right bottom-left bottom-center bottom-right left-center center right-center
 	origin = top-right

@@ -54,7 +54,7 @@ set ()
 	cp -r ~/dotfiles/configs/$1/* ~/dotfiles/current-config
 	# symlink current config files to original locations
 	cd ~/dotfiles/current-config
-	stow * -t ../.. --adopt
+	stow * -t ~ --adopt
 	cd ../..
 
 	# print status

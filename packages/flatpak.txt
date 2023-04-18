@@ -1,0 +1,15 @@
+Ear Tag	app.drey.EarTag	0.3.3	stable	system
+Bitwarden	com.bitwarden.desktop	2023.3.2	stable	system
+Discord	com.discordapp.Discord	0.0.26	stable	system
+Postman	com.getpostman.Postman	10.12.13	stable	system
+TLPUI	com.github.d4nj1.tlpui	1.5.0-7	stable	system
+Whaler	com.github.sdv43.whaler	1.2.0	stable	system
+Flatseal	com.github.tchx84.Flatseal	1.8.1	stable	system
+Haguichi	com.github.ztefn.haguichi	1.4.5	stable	system
+Microsoft Teams	com.microsoft.Teams	1.5.00.23861	stable	system
+Parsec	com.parsecgaming.parsec	3.9.8	stable	system
+Spotify	com.spotify.Client	1.2.8.923.g4f94bf0d	stable	system
+Obsidian	md.obsidian.Obsidian	1.1.16	stable	system
+What IP	org.gabmus.whatip	1.2	stable	system
+VLC	org.videolan.VLC	3.0.18	stable	system
+Kodi	tv.kodi.Kodi	20.1-Nexus	stable	system

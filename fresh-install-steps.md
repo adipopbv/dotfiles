@@ -1,5 +1,7 @@
 # Fresh install
 
+This document contains steps needed to be done to make the install ready to go (most stuff is allready set up in config files, but some commands need to be run).
+
 ## Steps for dotman
 
 - install git
@@ -7,6 +9,9 @@
 - install packages
 - create `current-config`
 - symlink configs to `current-config` files
+- set user groups (sudo, wheel, input etc.)
+- make pacman and yay output color
+- generate ssh key
 
 ## Stuff to setup:
 
@@ -27,8 +32,10 @@
 - function keys (xbindkeys)
 - bluetooth (bluez, bluez-utils)
 - battery (tlp, tpacpi-bat)
+- fonts (fc-cache)
+- touchpad (fusuma)
+- backup (snapper)
 
-- fonts
 - ui & ux customizations
 
 ### Login shell
@@ -144,4 +151,26 @@ Setup bluetooth
 Set charge limit for thinkpad laptop
 
 - modify tlp config
+
+### Fonts
+
+Install fonts
+
+- gnu-free-fonts for most apps
+- `fc-cache` to reload fonts
+
+### Touchpad
+
+Touchpad configuration
+
+- use `fusuma` to assign gestures to hotkeys
+- copy and configure `/usr/share/X11/xorg.conf.d/70-synaptics.conf` to `/etc/X11/xorg.conf.d/`
+
+### UI & UX Customizations
+
+#### Spotify
+
+Packages: `spotify-launcher`, `spicetify-cli` and `spicetify-themes-git`
+
+- set theme with command
 

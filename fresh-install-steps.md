@@ -35,6 +35,7 @@ This document contains steps needed to be done to make the install ready to go (
 - fonts (fc-cache)
 - touchpad (fusuma)
 - backup (snapper)
+- power management (tlp)
 
 - ui & ux customizations
 
@@ -78,7 +79,7 @@ Setup Firefox
 - wait for sync
 - login to bitwarden and other extensions
 
-### Test editor
+### Text editor
 
 Setup Neovim
 
@@ -165,6 +166,12 @@ Touchpad configuration
 
 - use `fusuma` to assign gestures to hotkeys
 - copy and configure `/usr/share/X11/xorg.conf.d/70-synaptics.conf` to `/etc/X11/xorg.conf.d/`
+
+### Power management
+
+Use tlp to manage power settings
+
+- set thinkpad battery threshold
 
 ### UI & UX Customizations
 
